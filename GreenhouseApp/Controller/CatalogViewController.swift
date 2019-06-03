@@ -90,7 +90,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         {
             DispatchQueue.main.async
                 {
-                    let alert = UIAlertController(title: "Flower photo", message: nil, preferredStyle: UIAlertController.Style.alert)
+                    let alert = UIAlertController(title: "Flower photo", message: nil, preferredStyle: .alert)
                     let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 300, height: 300))
                    // imageView.image = image //  image from db
                     alert.view.addSubview(imageView)
@@ -98,7 +98,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
                     let width = NSLayoutConstraint(item: alert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 300)
                     alert.view.addConstraint(height)
                     alert.view.addConstraint(width)
-                    let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+                    let alertAction = UIAlertAction(title: "OK", style: .default)
                     {
                         (UIAlertAction) -> Void in
                     }

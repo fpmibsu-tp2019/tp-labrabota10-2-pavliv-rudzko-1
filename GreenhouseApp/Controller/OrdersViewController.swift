@@ -27,11 +27,11 @@ class OrdersViewController: UIViewController, UITableViewDataSource {
     @IBAction func orderButtonClicked(_ sender: Any) {
         DispatchQueue.main.async
             {
-                let alert = UIAlertController(title: "Make order", message: "We will contact you within 15 minutes", preferredStyle: UIAlertController.Style.alert)
+                let alert = UIAlertController(title: "Make order", message: "We will contact you within 15 minutes", preferredStyle: .alert)
                 alert.addTextField(configurationHandler: {(textField) in
                     textField.placeholder = "Enter phone number"
                 })
-                let alertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+                let alertAction = UIAlertAction(title: "OK", style: .default)
                 {
                     (UIAlertAction) -> Void in
                 }
