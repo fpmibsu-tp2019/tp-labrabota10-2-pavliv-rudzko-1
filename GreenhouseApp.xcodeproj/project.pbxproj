@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77E2015722A3F829000C4EA6 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2015622A3F829000C4EA6 /* CatalogViewController.swift */; };
+		77E2015922A3F859000C4EA6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2015822A3F859000C4EA6 /* MapViewController.swift */; };
+		77E2015B22A3F87E000C4EA6 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2015A22A3F87E000C4EA6 /* OrdersViewController.swift */; };
+		77E2015D22A4032B000C4EA6 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2015C22A4032B000C4EA6 /* OrderTableViewCell.swift */; };
+		77E2015F22A41A30000C4EA6 /* FlowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E2015E22A41A30000C4EA6 /* FlowerTableViewCell.swift */; };
 		77E96F9222A169CF006C4268 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96F9122A169CF006C4268 /* AppDelegate.swift */; };
 		77E96F9422A169CF006C4268 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96F9322A169CF006C4268 /* ViewController.swift */; };
 		77E96F9722A169CF006C4268 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E96F9522A169CF006C4268 /* Main.storyboard */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77E2015622A3F829000C4EA6 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
+		77E2015822A3F859000C4EA6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		77E2015A22A3F87E000C4EA6 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		77E2015C22A4032B000C4EA6 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		77E2015E22A41A30000C4EA6 /* FlowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerTableViewCell.swift; sourceTree = "<group>"; };
 		77E96F8E22A169CF006C4268 /* GreenhouseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenhouseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E96F9122A169CF006C4268 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77E96F9322A169CF006C4268 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +86,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77E2015322A3F7AC000C4EA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				77E96F9322A169CF006C4268 /* ViewController.swift */,
+				77E2015622A3F829000C4EA6 /* CatalogViewController.swift */,
+				77E2015822A3F859000C4EA6 /* MapViewController.swift */,
+				77E2015A22A3F87E000C4EA6 /* OrdersViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		77E2015422A3F7BD000C4EA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77E96F9122A169CF006C4268 /* AppDelegate.swift */,
+				77E96F9822A169CF006C4268 /* GreenhouseApp.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77E2015522A3F7CE000C4EA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77E96F9522A169CF006C4268 /* Main.storyboard */,
+				77E96F9D22A169D5006C4268 /* LaunchScreen.storyboard */,
+				77E2015C22A4032B000C4EA6 /* OrderTableViewCell.swift */,
+				77E2015E22A41A30000C4EA6 /* FlowerTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		77E96F8522A169CF006C4268 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +140,11 @@
 		77E96F9022A169CF006C4268 /* GreenhouseApp */ = {
 			isa = PBXGroup;
 			children = (
-				77E96F9122A169CF006C4268 /* AppDelegate.swift */,
-				77E96F9322A169CF006C4268 /* ViewController.swift */,
-				77E96F9522A169CF006C4268 /* Main.storyboard */,
+				77E2015522A3F7CE000C4EA6 /* View */,
+				77E2015422A3F7BD000C4EA6 /* Model */,
+				77E2015322A3F7AC000C4EA6 /* Controller */,
 				77E96F9B22A169D5006C4268 /* Assets.xcassets */,
-				77E96F9D22A169D5006C4268 /* LaunchScreen.storyboard */,
 				77E96FA022A169D5006C4268 /* Info.plist */,
-				77E96F9822A169CF006C4268 /* GreenhouseApp.xcdatamodeld */,
 			);
 			path = GreenhouseApp;
 			sourceTree = "<group>";
@@ -258,8 +297,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E2015722A3F829000C4EA6 /* CatalogViewController.swift in Sources */,
+				77E2015B22A3F87E000C4EA6 /* OrdersViewController.swift in Sources */,
 				77E96F9422A169CF006C4268 /* ViewController.swift in Sources */,
 				77E96F9222A169CF006C4268 /* AppDelegate.swift in Sources */,
+				77E2015922A3F859000C4EA6 /* MapViewController.swift in Sources */,
+				77E2015D22A4032B000C4EA6 /* OrderTableViewCell.swift in Sources */,
+				77E2015F22A41A30000C4EA6 /* FlowerTableViewCell.swift in Sources */,
 				77E96F9A22A169CF006C4268 /* GreenhouseApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44XRH465Q9;
 				INFOPLIST_FILE = GreenhouseApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44XRH465Q9;
 				INFOPLIST_FILE = GreenhouseApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
