@@ -21,6 +21,8 @@
 		77E96FAA22A169D5006C4268 /* GreenhouseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96FA922A169D5006C4268 /* GreenhouseAppTests.swift */; };
 		77E96FB522A169D6006C4268 /* GreenhouseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96FB422A169D6006C4268 /* GreenhouseAppUITests.swift */; };
 		C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */; };
+		C92553FB22A8145E0091C8A6 /* AuthorizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */; };
+		C92553FD22A839CC0091C8A6 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FC22A839CC0091C8A6 /* UserEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		77E96FB422A169D6006C4268 /* GreenhouseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseAppUITests.swift; sourceTree = "<group>"; };
 		77E96FB622A169D6006C4268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseAnnotation.swift; sourceTree = "<group>"; };
+		C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEntity.swift; sourceTree = "<group>"; };
+		C92553FC22A839CC0091C8A6 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				77E96F9122A169CF006C4268 /* AppDelegate.swift */,
 				77E96F9822A169CF006C4268 /* GreenhouseApp.xcdatamodeld */,
 				C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */,
+				C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */,
+				C92553FC22A839CC0091C8A6 /* UserEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,12 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92553FD22A839CC0091C8A6 /* UserEntity.swift in Sources */,
 				C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */,
 				77E2015722A3F829000C4EA6 /* CatalogViewController.swift in Sources */,
 				77E2015B22A3F87E000C4EA6 /* OrdersViewController.swift in Sources */,
 				77E96F9422A169CF006C4268 /* ViewController.swift in Sources */,
 				77E96F9222A169CF006C4268 /* AppDelegate.swift in Sources */,
 				77E2015922A3F859000C4EA6 /* MapViewController.swift in Sources */,
+				C92553FB22A8145E0091C8A6 /* AuthorizationEntity.swift in Sources */,
 				77E2015D22A4032B000C4EA6 /* OrderTableViewCell.swift in Sources */,
 				77E2015F22A41A30000C4EA6 /* FlowerTableViewCell.swift in Sources */,
 				77E96F9A22A169CF006C4268 /* GreenhouseApp.xcdatamodeld in Sources */,

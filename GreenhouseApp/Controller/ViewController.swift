@@ -68,10 +68,14 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func enterTapped(_ sender: Any) {
+    @IBAction func enterTapped(_ sender: Any)
+    {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         if signSegment.selectedSegmentIndex == 0
         {
-            let udPassword = UserDefaults.standard.object(forKey: self.loginField.text!)
+            //let udPassword = UserDefaults.standard.object(forKey: self.loginField.text!)
+            let udPassword = AuthorizationEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: self.loginField.text!).password()
+            print(udPassword!)
             if udPassword != nil
             {
                 if ((udPassword! as! String).elementsEqual(passwordField.text!)) == true
@@ -96,8 +100,9 @@ class ViewController: UIViewController {
             {
                 if (rPasswordField.text)!.elementsEqual(passwordField.text!)
                 {
-                    UserDefaults.standard.set(passwordField.text, forKey: loginField.text!)
-                    // add user to database in table User
+                    //UserDefaults.standard.set(passwordField.text, forKey: loginField.text!)
+                    var _: AuthorizationEntity = AuthorizationEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: loginField.text!, password: passwordField.text!)
+                    var _: UserEntity = UserEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: loginField.text!)
                     regView.isHidden = true
                     menuView.isHidden = false
                 }

@@ -16,23 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
-        if !UserDefaults.standard.bool(forKey: "HasLaunchedOnce")
-        {
-            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.register(defaults: ["user1" : "111"])
-            UserDefaults.standard.register(defaults: ["user2" : "222"])
-            UserDefaults.standard.register(defaults: ["user3" : "333"])
-            UserDefaults.standard.register(defaults: ["user4" : "444"])
+//        if !UserDefaults.standard.bool(forKey: "HasLaunchedOnce")
+//        {
+//            UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+//            UserDefaults.standard.synchronize()
+        
+            var _: AuthorizationEntity = AuthorizationEntity(persistentContainer: persistentContainer, login: "user1", password: "111")
+            var _: AuthorizationEntity = AuthorizationEntity(persistentContainer: persistentContainer, login: "user2", password: "222")
             
-            // add coordinates ?
             
-        }
-        var applicationDocumentsDirectory: NSURL = {
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            return urls[urls.count-1] as NSURL
-        }()
-        print(applicationDocumentsDirectory )
+        //}
+        
+        
+//        var applicationDocumentsDirectory: NSURL = {
+//            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//            return urls[urls.count-1] as NSURL
+//        }()
+//        print(applicationDocumentsDirectory )
         return true
     }
 
@@ -64,53 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentContainer: NSPersistentContainer = {
 
-//        let container = NSPersistentContainer(name: "GreenhouseApp")
-//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let error = error as NSError? {
-//
-//                fatalError("Unresolved error \(error), \(error.userInfo)")
-//            }
-//        })
-//
-//
-        
-        
-        
-        let databaseName = "GreenhouseApp"
-        
-        let container = NSPersistentContainer(name: databaseName)
-        
-        var persistentStoreDescriptions: NSPersistentStoreDescription
-        
-        let storeUrl = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first!.appendingPathComponent(databaseName + ".sqlite")
-        
-        print("stroreUrl : ")
-        print(storeUrl)
-        
-        let storeUrlFolder = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask).first!
-        
-        if !FileManager.default.fileExists(atPath: (storeUrl.path))
-        {
-            print("ok!!")
-            
-            let seededDataUrl = Bundle.main.url(forResource: databaseName, withExtension: "sqlite")
-            let seededDataUrl2 = Bundle.main.url(forResource: databaseName, withExtension: "sqlite-shm")
-            let seededDataUrl3 = Bundle.main.url(forResource: databaseName, withExtension: "sqlite-wal")
-            
-            try! FileManager.default.copyItem(at: seededDataUrl!, to: storeUrl)
-            try! FileManager.default.copyItem(at: seededDataUrl2!, to: storeUrlFolder.appendingPathComponent(databaseName + ".sqlite-shm"))
-            try! FileManager.default.copyItem(at: seededDataUrl3!, to: storeUrlFolder.appendingPathComponent(databaseName + ".sqlite-wal"))
-            
-        }
-        
-        container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeUrl)]
+        let container = NSPersistentContainer(name: "GreenhouseApp")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error {
-                
-                fatalError("Unresolved error \(error),")
+            if let error = error as NSError? {
+
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-
         
         return container
     }()
