@@ -24,6 +24,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         //init compos (all from db for user)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let managedContext = (appDelegate?.persistentContainer)!.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Compositions")
+        compositions = try! managedContext.fetch(request) as! [NSManagedObject]
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {

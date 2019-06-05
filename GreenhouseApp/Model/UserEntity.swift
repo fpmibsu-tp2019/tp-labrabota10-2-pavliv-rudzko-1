@@ -12,21 +12,6 @@ class UserEntity
 {
     private var databaseObject: NSManagedObject?
     
-//    init(persistentContainer: NSPersistentContainer, login: String) // ??
-//    {
-//        let managedContext = persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-//        request.predicate = NSPredicate(format: "login = %@", login) // ??
-//        let objects = try! managedContext.fetch(request) as! [NSManagedObject]
-//
-//        if objects.count > 0
-//        {
-//            self.databaseObject = objects[0]
-//        } else {
-//            self.databaseObject = nil
-//        }
-//    }
-    
     init(persistentContainer: NSPersistentContainer, login: String)
     {
         let managedContext = persistentContainer.viewContext
@@ -39,6 +24,23 @@ class UserEntity
 
         
         try! managedContext.save()
+    }
+    
+    func id_by_login(persistentContainer: NSPersistentContainer, login: String) -> Int32?
+    {
+        let managedContext = persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        request.predicate = NSPredicate(format: "login = %@", login)
+        let objects = try! managedContext.fetch(request) as! [NSManagedObject]
+        
+        if objects.count > 0
+        {
+            var tempObj: NSManagedObject?
+            tempObj = objects[0]
+            return tempObj?.value(forKey: "id") as? Int32
+        } else {
+            return -1
+        }
     }
     
     func delete(persistentContainer: NSPersistentContainer)

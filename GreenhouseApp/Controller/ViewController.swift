@@ -75,11 +75,11 @@ class ViewController: UIViewController {
         {
             //let udPassword = UserDefaults.standard.object(forKey: self.loginField.text!)
             let udPassword = AuthorizationEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: self.loginField.text!).password()
-            print(udPassword!)
             if udPassword != nil
             {
                 if ((udPassword! as! String).elementsEqual(passwordField.text!)) == true
                 {
+                    
                     regView.isHidden = true
                     menuView.isHidden = false
                 }

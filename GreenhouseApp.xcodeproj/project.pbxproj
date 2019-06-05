@@ -23,6 +23,9 @@
 		C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */; };
 		C92553FB22A8145E0091C8A6 /* AuthorizationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */; };
 		C92553FD22A839CC0091C8A6 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FC22A839CC0091C8A6 /* UserEntity.swift */; };
+		C92553FF22A83F560091C8A6 /* OrdersEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FE22A83F560091C8A6 /* OrdersEntity.swift */; };
+		C925540122A8499F0091C8A6 /* Flower_compositionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C925540022A8499F0091C8A6 /* Flower_compositionsEntity.swift */; };
+		C925540322A861240091C8A6 /* CompositionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C925540222A861240091C8A6 /* CompositionsEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseAnnotation.swift; sourceTree = "<group>"; };
 		C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationEntity.swift; sourceTree = "<group>"; };
 		C92553FC22A839CC0091C8A6 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		C92553FE22A83F560091C8A6 /* OrdersEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEntity.swift; sourceTree = "<group>"; };
+		C925540022A8499F0091C8A6 /* Flower_compositionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower_compositionsEntity.swift; sourceTree = "<group>"; };
+		C925540222A861240091C8A6 /* CompositionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,9 @@
 				C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */,
 				C92553FA22A8145E0091C8A6 /* AuthorizationEntity.swift */,
 				C92553FC22A839CC0091C8A6 /* UserEntity.swift */,
+				C92553FE22A83F560091C8A6 /* OrdersEntity.swift */,
+				C925540022A8499F0091C8A6 /* Flower_compositionsEntity.swift */,
+				C925540222A861240091C8A6 /* CompositionsEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,7 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92553FD22A839CC0091C8A6 /* UserEntity.swift in Sources */,
+				C92553FF22A83F560091C8A6 /* OrdersEntity.swift in Sources */,
 				C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */,
+				C925540122A8499F0091C8A6 /* Flower_compositionsEntity.swift in Sources */,
 				77E2015722A3F829000C4EA6 /* CatalogViewController.swift in Sources */,
 				77E2015B22A3F87E000C4EA6 /* OrdersViewController.swift in Sources */,
 				77E96F9422A169CF006C4268 /* ViewController.swift in Sources */,
@@ -317,6 +328,7 @@
 				77E2015D22A4032B000C4EA6 /* OrderTableViewCell.swift in Sources */,
 				77E2015F22A41A30000C4EA6 /* FlowerTableViewCell.swift in Sources */,
 				77E96F9A22A169CF006C4268 /* GreenhouseApp.xcdatamodeld in Sources */,
+				C925540322A861240091C8A6 /* CompositionsEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
