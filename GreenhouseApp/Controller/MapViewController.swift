@@ -14,14 +14,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var infoLabel: UILabel!
     
     let locationManager = CLLocationManager()
+    let initialLocation = CLLocation(latitude: 53.9 , longitude: 27.56659)
+    let regionRadius: CLLocationDistance = 20000
+    
+    func centerMapOnLocation(location: CLLocation)
+    {
+        locationManager.delegate = self
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        centerMapOnLocation(location: initialLocation)
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
         mapView.showsUserLocation = true
         enableLocationServices()
         escalateLocationServiceAuthorization()
+        
+        mapView.addAnnotation(GreenhouseAnnotation(title: "Branch office 1", coordinate: CLLocationCoordinate2D(latitude: 53.867378, longitude: 27.597416)))
+        
+        mapView.addAnnotation(GreenhouseAnnotation(title: "Branch office 2", coordinate: CLLocationCoordinate2D(latitude: 53.868128, longitude: 27.477901)))
+        
+        mapView.addAnnotation(GreenhouseAnnotation(title: "Branch office 3", coordinate: CLLocationCoordinate2D(latitude: 53.934000, longitude: 27.530893)))
     }
     
     func enableLocationServices() {

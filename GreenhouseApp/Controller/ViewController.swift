@@ -97,6 +97,7 @@ class ViewController: UIViewController {
                 if (rPasswordField.text)!.elementsEqual(passwordField.text!)
                 {
                     UserDefaults.standard.set(passwordField.text, forKey: loginField.text!)
+                    // add user to database in table User
                     regView.isHidden = true
                     menuView.isHidden = false
                 }

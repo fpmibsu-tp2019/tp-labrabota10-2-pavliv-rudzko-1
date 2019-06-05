@@ -20,6 +20,7 @@
 		77E96F9F22A169D5006C4268 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E96F9D22A169D5006C4268 /* LaunchScreen.storyboard */; };
 		77E96FAA22A169D5006C4268 /* GreenhouseAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96FA922A169D5006C4268 /* GreenhouseAppTests.swift */; };
 		77E96FB522A169D6006C4268 /* GreenhouseAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E96FB422A169D6006C4268 /* GreenhouseAppUITests.swift */; };
+		C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		77E96FB022A169D5006C4268 /* GreenhouseAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenhouseAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E96FB422A169D6006C4268 /* GreenhouseAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseAppUITests.swift; sourceTree = "<group>"; };
 		77E96FB622A169D6006C4268 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				77E96F9122A169CF006C4268 /* AppDelegate.swift */,
 				77E96F9822A169CF006C4268 /* GreenhouseApp.xcdatamodeld */,
+				C92553F822A7E8310091C8A6 /* GreenhouseAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92553F922A7E8310091C8A6 /* GreenhouseAnnotation.swift in Sources */,
 				77E2015722A3F829000C4EA6 /* CatalogViewController.swift in Sources */,
 				77E2015B22A3F87E000C4EA6 /* OrdersViewController.swift in Sources */,
 				77E96F9422A169CF006C4268 /* ViewController.swift in Sources */,
