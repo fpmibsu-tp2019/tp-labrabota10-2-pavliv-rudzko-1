@@ -16,7 +16,7 @@ class OrdersEntity
     {
         let managedContext = persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Orders")
-        request.predicate = NSPredicate(format: "user_id = %@", user_id) // ?? %d
+        request.predicate = NSPredicate(format: "user_id = %d", user_id) // ?? %d
         let objects = try! managedContext.fetch(request) as! [NSManagedObject]
         
         if objects.count > 0

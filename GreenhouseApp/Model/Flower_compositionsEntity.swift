@@ -16,9 +16,8 @@ class Flower_compositionsEntity
     {
         let managedContext = persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flower_compositions")
-        request.predicate = NSPredicate(format: "flower_composition = %@", flower_composition) 
+        request.predicate = NSPredicate(format: "composition_name = %@", flower_composition) 
         let objects = try! managedContext.fetch(request) as! [NSManagedObject]
-        
         if objects.count > 0
         {
             self.databaseObject = objects[0]
@@ -32,7 +31,6 @@ class Flower_compositionsEntity
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Flower_compositions", in: managedContext)!
         let id = try! managedContext.count(for: NSFetchRequest(entityName: "Flower_compositions"))
-        
         databaseObject = NSManagedObject(entity: entity, insertInto: managedContext)
         databaseObject!.setValue(id + 1, forKey: "id")
         databaseObject!.setValue(amount, forKey: "amount")
@@ -40,7 +38,6 @@ class Flower_compositionsEntity
         databaseObject!.setValue(composition_name, forKey: "composition_name")
         databaseObject!.setValue(kind, forKey: "kind")
         databaseObject!.setValue(name, forKey: "name")
-        
         try! managedContext.save()
     }
     

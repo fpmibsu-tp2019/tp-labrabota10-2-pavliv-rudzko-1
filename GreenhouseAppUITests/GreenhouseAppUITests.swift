@@ -9,6 +9,7 @@ import XCTest
 
 class GreenhouseAppUITests: XCTestCase {
 
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -25,7 +26,50 @@ class GreenhouseAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testInterface() {
+        
+        let app = XCUIApplication()
+        app.textFields["Login"].tap()
+        app.textFields["Login"].typeText("user1")
+        
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("111")
+        
+                
+                
+//        let labelFail = app.
+        
+        
+        
+        let switchAccess = app.switches["switchAccess"]
+        switchAccess.tap()
+        
+        let enterButton = app.buttons["Enter"]
+        enterButton.tap()
+ 
+        app.buttons["Your orders"].tap()
+        app.buttons["Order"].tap()
+        
+        let makeOrderAlert = app.alerts["Make order"]
+        let collectionViewsQuery = makeOrderAlert.collectionViews
+        let enterPhoneNumberTextField = collectionViewsQuery.textFields["Enter phone number"]
+        enterPhoneNumberTextField.tap()
+        collectionViewsQuery.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).tap()
+        enterPhoneNumberTextField.tap()
+        enterPhoneNumberTextField.tap()
+        makeOrderAlert.buttons["OK"].tap()
+        
+        let backButton = app.buttons["Back"]
+        backButton.tap()
+        
+        app.buttons["Make an order"].tap()
+        backButton.tap()
+        app.buttons["Our branches"].tap()
+        app.buttons["Back"].tap()
+       
+        
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

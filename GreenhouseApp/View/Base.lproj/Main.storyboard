@@ -50,6 +50,9 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VBT-uh-Xh2">
                                         <rect key="frame" x="273" y="231" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="switchAccess"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="switchTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="gjQ-O6-DZh"/>
                                         </connections>
@@ -576,6 +579,6 @@
         <image name="icons8-todo-list-100" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nNX-41-s1b"/>
+        <segue reference="bpo-CG-hBn"/>
     </inferredMetricsTieBreakers>
 </document>
