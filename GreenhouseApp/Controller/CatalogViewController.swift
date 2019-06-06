@@ -44,8 +44,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func cartButtonClicked(_ sender: Any) {
         // compositions only fot user leave
+        print("login = ", self.login)
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        compositions_user = OrdersEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: login).getByLogin() as! [Orders]
+        compositions_user = OrdersEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: self.login).getByLogin() as! [Orders]
+        print("count = ", compositions_user)
          performSegue(withIdentifier: "cartSegue", sender: compositions_user)
     }
     
@@ -80,7 +82,6 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             let comp = compositions[indexPath.row] as! Compositions
             cell.name?.text = comp.composition_name
             cell.price?.text = (String)(comp.cost)
-           // cell.stepper.isHidden = false;
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "FlowerTableViewCell") as! FlowerTableViewCell
