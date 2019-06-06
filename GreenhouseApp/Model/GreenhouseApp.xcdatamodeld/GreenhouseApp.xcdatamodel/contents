@@ -9,6 +9,7 @@
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="composition_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Flower_compositions" representedClassName="Flower_compositions" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -38,6 +39,7 @@
         <attribute name="cost" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="flower_composition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="user_id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="OrdersFlower_compositions" representedClassName="OrdersFlower_compositions" syncable="YES" codeGenerationType="class">
@@ -55,9 +57,9 @@
         <element name="Flowers" positionX="54" positionY="36" width="128" height="105"/>
         <element name="FlowersFlower_compositions" positionX="63" positionY="72" width="128" height="90"/>
         <element name="Flower_compositions" positionX="72" positionY="90" width="128" height="135"/>
-        <element name="Orders" positionX="81" positionY="108" width="128" height="120"/>
+        <element name="Orders" positionX="81" positionY="108" width="128" height="135"/>
         <element name="OrderCost" positionX="90" positionY="126" width="128" height="75"/>
         <element name="OrdersFlower_compositions" positionX="36" positionY="90" width="128" height="90"/>
-        <element name="Compositions" positionX="45" positionY="99" width="128" height="90"/>
+        <element name="Compositions" positionX="45" positionY="99" width="128" height="105"/>
     </elements>
 </model>

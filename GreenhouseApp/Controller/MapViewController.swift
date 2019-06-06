@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var infoLabel: UILabel!
@@ -25,10 +26,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    
+    var descriptions: [String: String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         centerMapOnLocation(location: initialLocation)
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
@@ -41,6 +43,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.addAnnotation(GreenhouseAnnotation(title: "Branch office 2", coordinate: CLLocationCoordinate2D(latitude: 53.868128, longitude: 27.477901)))
         
         mapView.addAnnotation(GreenhouseAnnotation(title: "Branch office 3", coordinate: CLLocationCoordinate2D(latitude: 53.934000, longitude: 27.530893)))
+        
+        var format = PropertyListSerialization.PropertyListFormat.xml
+        let plistPath = Bundle.main.path(forResource: "branchesInfo", ofType: "plist")
+        let plistXML = FileManager.default.contents(atPath: plistPath!)
+        do
+        {
+            descriptions = try PropertyListSerialization.propertyList(from: plistXML!, options: .mutableContainersAndLeaves, format: &format) as! [String: String]
+        }
+        catch { }
     }
     
     func enableLocationServices() {
@@ -67,18 +78,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotationTitle = view.annotation?.title
         {
-            infoLabel.text = "User tapped on annotation with title: \(annotationTitle!)"
+            infoLabel.text = "User tapped on annotation with title: \(annotationTitle!)" + ". Contact us : " + descriptions[annotationTitle!]!
         }
     }
     
     @objc func handleLongPressGesture(_ gestureReconizer: UILongPressGestureRecognizer){
+        
         let point = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(point,toCoordinateFrom: mapView)
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         getPlacemarkFromLocation(location: location, coordinate: coordinate)
+        
     }
     
     func getPlacemarkFromLocation(location: CLLocation, coordinate: CLLocationCoordinate2D){
@@ -92,7 +105,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 {
                     if let city =  placemark.locality
                     {
-                        self.setAnnotationToMap(title: city, coordinate:coordinate)
+                        //self.setAnnotationToMap(title: city, coordinate:coordinate)
                     }
                 }
         })
@@ -104,7 +117,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         annotation.title = title
         annotation.coordinate = coordinate
         mapView.addAnnotation(annotation)
-        infoLabel.text = title
+        //infoLabel.text = title
     }
     
     @IBAction func buttonClicked(_ sender: Any) {

@@ -5,27 +5,33 @@
 //  Created by Lizaveta Rudzko on 3/15/1398 AP.
 //
 
+import UIKit
 import Foundation
 import CoreData
 
 class Flower_compositionsEntity
 {
     private var databaseObject: NSManagedObject?
+    private var databaseObjects = [NSManagedObject]()
     
-    init(persistentContainer: NSPersistentContainer, flower_composition: String) // ??
+    init(persistentContainer: NSPersistentContainer, composition_name: String) // ??
     {
         let managedContext = persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Flower_compositions")
-        request.predicate = NSPredicate(format: "flower_composition = %@", flower_composition) 
+        request.predicate = NSPredicate(format: "composition_name = %@", composition_name)
         let objects = try! managedContext.fetch(request) as! [NSManagedObject]
         
         if objects.count > 0
         {
-            self.databaseObject = objects[0]
-        } else {
-            self.databaseObject = nil
+            self.databaseObjects = objects
         }
     }
+    
+    func getByCompName() -> [NSManagedObject]
+    {
+        return databaseObjects
+    }
+    
     
     init(persistentContainer: NSPersistentContainer, amount: Int32, cost: Int32, composition_name: String, kind: String, name: String)
     {
@@ -40,6 +46,8 @@ class Flower_compositionsEntity
         databaseObject!.setValue(composition_name, forKey: "composition_name")
         databaseObject!.setValue(kind, forKey: "kind")
         databaseObject!.setValue(name, forKey: "name")
+        //let newImage = UIImage.jpegData(image)
+        //databaseObject!.setValue(newImage, forKey: "image")
         
         try! managedContext.save()
     }

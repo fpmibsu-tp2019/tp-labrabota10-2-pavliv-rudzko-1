@@ -49,17 +49,18 @@ class OrdersViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        print(compositions.count)
         return compositions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell") as! OrderTableViewCell
-        let comp = compositions[indexPath.row] /*as! Composition*/ //choose if count != 0
-        /* cell.name?.text = comp.name
-        cell.price?.text = (String)(comp.price)
-        cell.count?.text = ? */ //from prev table
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCellCart") as! OrderTableViewCell
+        let comp = compositions[indexPath.row] as! Orders //choose if count != 0
+        cell.name?.text = comp.flower_composition
+        cell.price?.text = (String)(comp.cost)
+        cell.count?.text = (String)(comp.amount)  //from prev table
         
         return cell
       

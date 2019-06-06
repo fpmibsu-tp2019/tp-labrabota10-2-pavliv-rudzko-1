@@ -16,6 +16,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet var count: UILabel!
     @IBOutlet var oCount: UILabel!
     
+    @IBOutlet weak var stepper: UIStepper!
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         count.text = Int(sender.value).description
     }

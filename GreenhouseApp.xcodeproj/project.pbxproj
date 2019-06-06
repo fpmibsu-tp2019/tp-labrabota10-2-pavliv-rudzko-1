@@ -26,6 +26,7 @@
 		C92553FF22A83F560091C8A6 /* OrdersEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92553FE22A83F560091C8A6 /* OrdersEntity.swift */; };
 		C925540122A8499F0091C8A6 /* Flower_compositionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C925540022A8499F0091C8A6 /* Flower_compositionsEntity.swift */; };
 		C925540322A861240091C8A6 /* CompositionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C925540222A861240091C8A6 /* CompositionsEntity.swift */; };
+		C925540522A8E57F0091C8A6 /* branchesInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C925540422A8E57E0091C8A6 /* branchesInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		C92553FE22A83F560091C8A6 /* OrdersEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersEntity.swift; sourceTree = "<group>"; };
 		C925540022A8499F0091C8A6 /* Flower_compositionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower_compositionsEntity.swift; sourceTree = "<group>"; };
 		C925540222A861240091C8A6 /* CompositionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsEntity.swift; sourceTree = "<group>"; };
+		C925540422A8E57E0091C8A6 /* branchesInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = branchesInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				77E2015322A3F7AC000C4EA6 /* Controller */,
 				77E96F9B22A169D5006C4268 /* Assets.xcassets */,
 				77E96FA022A169D5006C4268 /* Info.plist */,
+				C925540422A8E57E0091C8A6 /* branchesInfo.plist */,
 			);
 			path = GreenhouseApp;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				77E96F9F22A169D5006C4268 /* LaunchScreen.storyboard in Resources */,
 				77E96F9C22A169D5006C4268 /* Assets.xcassets in Resources */,
+				C925540522A8E57F0091C8A6 /* branchesInfo.plist in Resources */,
 				77E96F9722A169CF006C4268 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class CatalogViewController: UIViewController, UITableViewDataSource {
+class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var compositionsView: UIView!
@@ -17,6 +17,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var flowersView: UIView!
     
     var compositions = [NSManagedObject]()
+    var compositions_user = [NSManagedObject]()
     var flowers = [NSManagedObject]()
     var login: String = ""
     
@@ -27,7 +28,13 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let managedContext = (appDelegate?.persistentContainer)!.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Compositions")
-        compositions = try! managedContext.fetch(request) as! [NSManagedObject]
+        compositions = try! managedContext.fetch(request) as! [Compositions]
+        
+        self.compositionsTable.delegate = self
+        self.compositionsTable.dataSource = self
+        
+        self.flowersTable.delegate = self
+        self.flowersTable.dataSource = self
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {
@@ -36,7 +43,10 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func cartButtonClicked(_ sender: Any) {
-         performSegue(withIdentifier: "cartSegue", sender: compositions)
+        // compositions only fot user leave
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        compositions_user = OrdersEntity(persistentContainer: (appDelegate?.persistentContainer)!, login: login).getByLogin() as! [Orders]
+         performSegue(withIdentifier: "cartSegue", sender: compositions_user)
     }
     
     @IBAction func backMenuButtonClicked(_ sender: Any) {
@@ -57,8 +67,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         if (tableView == compositionsTable)
         {
             return compositions.count
-        }
+        } else {
         return flowers.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -66,20 +77,21 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         if (tableView == compositionsTable)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell") as! OrderTableViewCell
-            let comp = compositions[indexPath.row] /*as! Composition*/
-           /* cell.name?.text = comp.name
-            cell.price?.text = (String)(comp.price)*/
+            let comp = compositions[indexPath.row] as! Compositions
+            cell.name?.text = comp.composition_name
+            cell.price?.text = (String)(comp.cost)
+           // cell.stepper.isHidden = false;
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FlowerTableViewCell") as! OrderTableViewCell
-        let flower = flowers[indexPath.row] /*as! Flower*/
-        /* cell.name?.text = flower.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FlowerTableViewCell") as! FlowerTableViewCell
+        let flower = flowers[indexPath.row] as! Flower_compositions
+         cell.name?.text = flower.name
          cell.kind?.text = flower.kind
-         cell.price?.text = (String)(flower.price)
-         cell.count?.text = (String)flower.count*/
-        
+         cell.price?.text = (String)(flower.cost)
+         cell.count?.text = (String)(flower.amount)
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
@@ -88,6 +100,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
             compositionsView.isHidden = true
             flowersView.isHidden = false
             //flowers array init with values from db for composition at indexPath.row
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            let comp_name = (compositions[indexPath.row] as! Compositions).composition_name
+            flowers = Flower_compositionsEntity(persistentContainer: (appDelegate?.persistentContainer)!, composition_name: comp_name!).getByCompName() as! [Flower_compositions]
             flowersTable.reloadData()
         }
         else
@@ -120,6 +135,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource {
         {
             let vc = segue.destination as! CatalogViewController
             vc.login = (sender as? String)!
+            login = vc.login
         }
     }
 

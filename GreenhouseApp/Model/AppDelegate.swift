@@ -23,11 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             var _: AuthorizationEntity = AuthorizationEntity(persistentContainer: persistentContainer, login: "user1", password: "111")
             var _: AuthorizationEntity = AuthorizationEntity(persistentContainer: persistentContainer, login: "user2", password: "222")
-            
-            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 1, amount: 1, cost: 372, flower_composition: "Composition3")
-            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 2, amount: 3, cost: 30, flower_composition: "Composition2")
-            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 2, amount:
-                1, cost: 72, flower_composition: "Composition1")
         
             var _: Flower_compositionsEntity = Flower_compositionsEntity(persistentContainer: persistentContainer, amount: 3, cost: 24, composition_name: "Composition1", kind: "Rose", name: "Noisette Rose")
             var _: Flower_compositionsEntity = Flower_compositionsEntity(persistentContainer: persistentContainer, amount: 1, cost: 10, composition_name: "Composition2", kind: "Tulip", name: "Attila")
@@ -35,15 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var _: Flower_compositionsEntity = Flower_compositionsEntity(persistentContainer: persistentContainer, amount: 12, cost: 7, composition_name: "Composition3", kind: "Carnation", name: "Dianthus Barbatus")
         
             
+            var _: CompositionsEntity = CompositionsEntity(persistentContainer: persistentContainer, amount: 3, cost: 72, composition_name: "Composition1")
+            var _: CompositionsEntity = CompositionsEntity(persistentContainer: persistentContainer, amount: 1, cost: 10, composition_name: "Composition2")
+            var _: CompositionsEntity = CompositionsEntity(persistentContainer: persistentContainer, amount: 33, cost: 588, composition_name: "Composition3")
+            
+            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 1, amount: 1, cost: 372, flower_composition: "Composition1", login: "user1")
+            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 2, amount: 1, cost: 72, flower_composition: "Composition1", login: "user2")
+            var _: OrdersEntity = OrdersEntity(persistentContainer: persistentContainer, user_id: 2, amount: 3, cost: 30, flower_composition: "Composition2", login: "user2")
+            
         }
         
         
-        var applicationDocumentsDirectory: NSURL = {
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            return urls[urls.count-1] as NSURL
-        }()
-        print(applicationDocumentsDirectory )
-        
+//        var applicationDocumentsDirectory: NSURL = {
+//            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//            return urls[urls.count-1] as NSURL
+//        }()
+//        print(applicationDocumentsDirectory )
+//        
         return true
     }
 

@@ -11,6 +11,7 @@ import CoreData
 class CompositionsEntity
 {
     private var databaseObject: NSManagedObject?
+    private var databaseObjects = [NSManagedObject]()
     
     init(persistentContainer: NSPersistentContainer, composition_name: String) // ??
     {
@@ -25,6 +26,24 @@ class CompositionsEntity
         } else {
             self.databaseObject = nil
         }
+    }
+    
+    init(persistentContainer: NSPersistentContainer, login: String) // ??
+    {
+        let managedContext = persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Compositions")
+        request.predicate = NSPredicate(format: "login = %@", login)
+        let objects = try! managedContext.fetch(request) as! [NSManagedObject]
+        
+        if objects.count > 0
+        {
+            self.databaseObjects = objects
+        }
+    }
+    
+    func getByLogin() -> [NSManagedObject]
+    {
+        return databaseObjects
     }
     
     init(persistentContainer: NSPersistentContainer, amount: Int32, cost: Int32, composition_name: String)
